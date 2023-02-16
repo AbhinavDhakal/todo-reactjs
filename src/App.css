@@ -1,9 +1,156 @@
-.App{
-margin:auto;
-text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
 }
-#counter{
-	display: flex;
-	align-items: center;
-	justify-content: center;
+
+.theme-light {
+  --background: #9bc4cb;
+  --foreground: #dbefbc;
+  --green: #4caf50;
+  --red: #f44336;
+  --text: black;
+  --delete: #fb4934;
+  --buttonBg: #3c3836;
+  --button: #8ec07c;
+}
+.theme-dark {
+  --background: #1d2021;
+  --foreground: #d5c4a1;
+  --green: #689d6a;
+  --red: #af3a03;
+  --text: #8ec07c;
+  --delete: #cc241d;
+  --buttonBg:white;
+  --button:black;
+}
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  height: 100vh;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background: ; */
+  background: var(--background);
+}
+.mainButtons {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.mainButtons:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+#clearBtn {
+  /* background-color: #f44336; */
+  background-color: var(--red);
+}
+#todoAdd {
+  /* background-color: #4caf50; */
+  background-color: var(--green);
+}
+
+#inputTodo {
+  border: none;
+  padding: 15px 20px;
+  margin-bottom: 5px;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5rem;
+  width: 40vw;
+}
+#inputTodo:focus-visible {
+  border: none;
+}
+#lists {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.todo {
+  /* background-color: #dbefbc; */
+  background-color: var(--foreground);
+  color: black;
+  width: 50vw;
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+
+.todoText {
+  word-wrap: anywhere;
+  flex: 70%;
+  margin: 5px;
+  padding: 8px 10px;
+  font-size: 1.5rem;
+}
+
+.deleteBtn {
+  border: none;
+  /* background-color: #f44336; */
+  background-color: var(--delete);
+  flex: 10%;
+  width: 30px;
+  max-width: 30px;
+  height: 30px;
+  max-height: 30px;
+  margin-right: 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.finished {
+  text-decoration: line-through;
+  font-style: italic;
+  color: #af3a03;
+}
+a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+.left {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  font-size: 1rem;
+}
+.right {
+  position: fixed;
+  bottom: 1vw;
+  right: 2vw;
+}
+.themeChanger {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: none;
+}
+
+.themeChanger:hover {
+  cursor: pointer;
+  background-color: var(--buttonBg);
+  color: var(--button);
 }
