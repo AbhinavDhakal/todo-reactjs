@@ -22,8 +22,8 @@
   --red: #af3a03;
   --text: #8ec07c;
   --delete: #cc241d;
-  --buttonBg:white;
-  --button:black;
+  --buttonBg: white;
+  --button: black;
 }
 textarea:focus,
 input:focus {
@@ -41,20 +41,6 @@ body {
   /* background: ; */
   background: var(--background);
 }
-.mainButtons {
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-.mainButtons:hover {
-  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-    0 17px 50px 0 rgba(0, 0, 0, 0.19);
-}
 
 #clearBtn {
   /* background-color: #f44336; */
@@ -65,10 +51,16 @@ body {
   background-color: var(--green);
 }
 
+#input {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 #inputTodo {
   border: none;
   padding: 15px 20px;
-  margin-bottom: 5px;
   text-align: left;
   text-decoration: none;
   display: inline-block;
@@ -77,6 +69,21 @@ body {
 }
 #inputTodo:focus-visible {
   border: none;
+}
+.mainButtons {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5rem;
+  cursor: pointer;
+  height: 100%;
+}
+.mainButtons:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 #lists {
   display: flex;
@@ -91,35 +98,46 @@ body {
   width: 50vw;
   min-height: 2.5rem;
   display: flex;
+  /* flex-direction: column; */
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 5px;
+  padding: 5px;
 }
 
 .todoText {
   word-wrap: anywhere;
   flex: 70%;
+  padding: 4px 5px;
   margin: 5px;
-  padding: 8px 10px;
   font-size: 1.5rem;
 }
-
-.deleteBtn {
+.todoEditText {
+  word-wrap: anywhere;
+  flex: 70%;
+  padding: 8px 10px;
+  margin-right: 5px;
+  font-size: 1.5rem;
+}
+.deleteBtn,
+.editBtn {
   border: none;
-  /* background-color: #f44336; */
-  background-color: var(--delete);
-  flex: 10%;
   width: 30px;
   max-width: 30px;
   height: 30px;
   max-height: 30px;
-  margin-right: 10px;
   border-radius: 2px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.deleteBtn {
+  background-color: var(--delete);
+}
+.editBtn {
+  background-color: white;
 }
 .finished {
   text-decoration: line-through;
@@ -153,4 +171,71 @@ a {
   cursor: pointer;
   background-color: var(--buttonBg);
   color: var(--button);
+}
+.completedTodo {
+  color: rgba(1, 1, 1, 0.7);
+  text-decoration: line-through;
+  font-style: italic;
+}
+.checkboxTodo {
+  flex: 0.5%;
+
+  border: none;
+  border-radius: 0;
+  min-height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.buttons {
+  flex: 5%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* If the screen size is 600px wide or less */
+@media only screen and (max-width: 760px) {
+  .todo {
+    flex-direction: column;
+  }
+  .todoEditText {
+    word-wrap: anywhere;
+    flex: 70%;
+    width: 80%;
+    height: 10px;
+    padding: 8px 10px;
+    margin-right: 5px;
+    font-size: 1rem;
+  }
+  .todoText {
+    font-size: 1.5rem;
+    padding: 5px;
+  }
+  .deleteBtn,
+  .editBtn {
+    border: none;
+    width: 20px;
+    max-width: 20px;
+    height: 20px;
+    max-height: 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5px;
+    padding: 12px;
+  }
+  .material-icons {
+    font-size: 20px;
+  }
+  #inputTodo {
+    width: 80%;
+  }
+  .checkboxTodo {
+    min-height: 15px;
+    width: 15px;
+  }
 }
